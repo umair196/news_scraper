@@ -23,7 +23,6 @@ if "sentiment" in df.columns:
     df["sentiment"] = df["sentiment"].astype(str).str.lower().str.strip()
 
 st.sidebar.header("Filters")
-
 sentiment_options = ["all"]
 if "sentiment" in df.columns:
     sentiment_options += sorted([s for s in df["sentiment"].dropna().unique().tolist() if s])
