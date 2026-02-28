@@ -3,3 +3,8 @@ beautifulsoup4
 lxml
 pandas
 python-dateutil
+streamlit
+pandas
+nltk
+requests
+beautifulsoup4
