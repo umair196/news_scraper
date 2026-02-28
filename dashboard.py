@@ -12,18 +12,18 @@ if not CSV_PATH.exists():
         "Missing file: output/articles_with_sentiment.csv\n\n"
         "Fix:\n"
         "1) Run locally: python scraper.py --max 20\n"
-        "2) Upload/commit output/articles_with_sentiment.csv to your GitHub repo\n"
+        "2) Upload/commit output/articles_with_sentiment.csv to GitHub\n"
         "3) Reboot the Streamlit app"
     )
     st.stop()
 
 df = pd.read_csv(CSV_PATH)
 
-# Clean sentiment column (if present)
 if "sentiment" in df.columns:
     df["sentiment"] = df["sentiment"].astype(str).str.lower().str.strip()
 
 st.sidebar.header("Filters")
+
 sentiment_options = ["all"]
 if "sentiment" in df.columns:
     sentiment_options += sorted([s for s in df["sentiment"].dropna().unique().tolist() if s])
